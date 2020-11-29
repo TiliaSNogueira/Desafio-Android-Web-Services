@@ -39,7 +39,7 @@ data class Results (
 	//@SerializedName("collectedIssues") val collectedIssues : List<String>,
 	//@SerializedName("dates") val dates : List<Dates>,
 	//@SerializedName("prices") val prices : List<Prices>,
-	//@SerializedName("thumbnail") val thumbnail : Thumbnail,
+	@SerializedName("thumbnail") val thumbnail : Thumbnail,
 	//@SerializedName("images") val images : List<String>,
 	//@SerializedName("creators") val creators : Creators,
 	//@SerializedName("characters") val characters : Characters,

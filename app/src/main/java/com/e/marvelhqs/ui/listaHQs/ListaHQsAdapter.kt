@@ -5,11 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.e.marvelhqs.R
 import com.e.marvelhqs.Results
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_hq.view.*
+import java.net.URI
 
 class ListaHQsAdapter(val listaHQs: List<Results>) :
     RecyclerView.Adapter<ListaHQsAdapter.HQViewHolder>() {
@@ -21,13 +23,31 @@ class ListaHQsAdapter(val listaHQs: List<Results>) :
 
     override fun onBindViewHolder(holder: HQViewHolder, position: Int) {
         val hq = listaHQs[position]
-        val picasso = Picasso.get()
-        val urlBase = "https://gateway.marvel.com/v1/public/characters/1011334/"
-        picasso.load(urlBase + )
 
-        holder.imagemCapaHQ.setImageResource()
         holder.numeroHQ.text = hq.issueNumber.toString()
+
+        val picasso = Picasso.get()
+       // val base = hq.thumbnail.path.toString()
+       val base = "https://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73"
+        val extension = hq.thumbnail.extension.toString()
+        val tipoImagem = "/portrait_xlarge."
+
+        //  picasso.load(base + tipoImagem + extension).into(holder.imagemCapaHQ)
+        val uriConcatenada = base + tipoImagem + extension
+       // val uri = uriConcatenada.toUri()
+       // holder.imagemCapaHQ.setImageURI(uri)
+
+
+        picasso.load(uriConcatenada).into(holder.imagemCapaHQ)
+
+
+        //Picasso.get().load(photoUrl).into(imageView);
+
+
+        //falta clique
+
     }
+
 
     override fun getItemCount() = listaHQs.size
 
