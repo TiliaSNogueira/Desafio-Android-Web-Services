@@ -5,15 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.e.marvelhqs.R
 import com.e.marvelhqs.Results
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_hq.view.*
-import java.net.URI
 
-class ListaHQsAdapter(val listaHQs: List<Results>) :
+class ListaHQsAdapter(val listaHQs: List<Results>, val listener: onClickLIstenerHQ) :
     RecyclerView.Adapter<ListaHQsAdapter.HQViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HQViewHolder {
@@ -23,29 +21,24 @@ class ListaHQsAdapter(val listaHQs: List<Results>) :
 
     override fun onBindViewHolder(holder: HQViewHolder, position: Int) {
         val hq = listaHQs[position]
+        val picasso = Picasso.get()
+        val base = hq.thumbnail.path.toString()
+        val extension = hq.thumbnail.extension.toString()
+        val tipoImagem = "/portrait_uncanny."
+        val uriConcatenada = base + tipoImagem + extension
 
         holder.numeroHQ.text = hq.issueNumber.toString()
-
-        val picasso = Picasso.get()
-       // val base = hq.thumbnail.path.toString()
-       val base = "https://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73"
-        val extension = hq.thumbnail.extension.toString()
-        val tipoImagem = "/portrait_xlarge."
-
-        //  picasso.load(base + tipoImagem + extension).into(holder.imagemCapaHQ)
-        val uriConcatenada = base + tipoImagem + extension
-       // val uri = uriConcatenada.toUri()
-       // holder.imagemCapaHQ.setImageURI(uri)
-
-
         picasso.load(uriConcatenada).into(holder.imagemCapaHQ)
 
+        holder.itemView.setOnClickListener {
+            listener.escoheHQClick(position)
+        }
 
-        //Picasso.get().load(photoUrl).into(imageView);
 
+    }
 
-        //falta clique
-
+    interface onClickLIstenerHQ {
+        fun escoheHQClick(position: Int)
     }
 
 

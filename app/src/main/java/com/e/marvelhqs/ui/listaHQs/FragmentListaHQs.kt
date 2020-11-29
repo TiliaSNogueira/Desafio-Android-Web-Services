@@ -6,16 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.e.marvelhqs.R
 import com.e.marvelhqs.Results
 import com.e.marvelhqs.repository.service
 import kotlinx.android.synthetic.main.fragment_lista_h_qs.view.*
 
-class FragmentListaHQs : Fragment() {
+class FragmentListaHQs : Fragment(), ListaHQsAdapter.onClickLIstenerHQ {
 
     private lateinit var adapterHQs : ListaHQsAdapter
     private lateinit var layoutManagerHQS : GridLayoutManager
@@ -28,7 +31,6 @@ class FragmentListaHQs : Fragment() {
 
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,21 +45,22 @@ class FragmentListaHQs : Fragment() {
         view.rv_fragmente_lista_HQs.setHasFixedSize(true)
 
         viewModel.listaComics.observe(viewLifecycleOwner, {
-            adapterHQs = ListaHQsAdapter(it)
+            adapterHQs = ListaHQsAdapter(it, this)
             view.rv_fragmente_lista_HQs.adapter = adapterHQs
-            Log.i("RESULTADOO", it.forEach {
-                Log.i("THUMBNAIL", it.thumbnail.toString())
-            }.toString())
         })
 
         viewModel.getListHQs()
 
-
-
-
-
         return view
     }
 
+    override fun escoheHQClick(position: Int) {
+        viewModel.listaComics.observe(this, {
+            val hqEscolhido = it.get(position)
 
+            val bundle = bundleOf("chave" to hqEscolhido)
+            findNavController().navigate(R.id.action_fragmentListaHQs_to_fragmentDetalhesHQ, bundle)
+
+        })
+    }
 }

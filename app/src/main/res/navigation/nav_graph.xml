@@ -18,5 +18,14 @@
         android:id="@+id/fragmentListaHQs"
         android:name="com.e.marvelhqs.ui.listaHQs.FragmentListaHQs"
         android:label="fragment_lista_h_qs"
-        tools:layout="@layout/fragment_lista_h_qs" />
+        tools:layout="@layout/fragment_lista_h_qs" >
+        <action
+            android:id="@+id/action_fragmentListaHQs_to_fragmentDetalhesHQ"
+            app:destination="@id/fragmentDetalhesHQ" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetalhesHQ"
+        android:name="com.e.marvelhqs.ui.FragmentDetalhesHQ"
+        android:label="fragment_detalhes_h_q"
+        tools:layout="@layout/fragment_detalhes_h_q" />
 </navigation>

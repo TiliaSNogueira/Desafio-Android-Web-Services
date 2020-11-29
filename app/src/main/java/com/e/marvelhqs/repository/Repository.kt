@@ -13,7 +13,7 @@ interface Service {
 }
 
 val retrofit = Retrofit.Builder()
-    .baseUrl("https://gateway.marvel.com/v1/public/characters/1011334/")
+    .baseUrl("http://gateway.marvel.com/v1/public/characters/1011334/")
     .addConverterFactory(GsonConverterFactory.create()).build()
 
 val service: Service = retrofit.create(Service::class.java)

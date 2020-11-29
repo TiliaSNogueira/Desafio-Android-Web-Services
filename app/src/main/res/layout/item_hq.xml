@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:backgroundTint="@color/cetacean_blue"
+    android:layout_marginTop="10dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:layout_margin="10dp"
-            android:background="#F44336"
+            android:layout_margin="5dp"
+            android:background="#FFFFFF"
             android:padding="2dp"/>
 
         <TextView
@@ -23,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Numero do quadrinho"
+            android:layout_margin="10dp"
             android:textColor="@color/white" />
 
     </LinearLayout>

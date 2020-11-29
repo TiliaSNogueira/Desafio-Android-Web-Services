@@ -24,7 +24,7 @@ class FragmentSplashScreen : Fragment() {
         val view = inflater.inflate(R.layout.fragment_splash_screen, container, false)
 
         scope.launch {
-            delay(5000)
+            delay(2000)
             findNavController().navigate(R.id.action_fragmentSplashScreen_to_fragmentListaHQs)
         }
 
