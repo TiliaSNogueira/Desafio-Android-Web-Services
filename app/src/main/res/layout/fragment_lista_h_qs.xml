@@ -9,22 +9,35 @@
     tools:context=".ui.listaHQs.FragmentListaHQs">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_fragment_lista"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:background="@color/alizarin_crimson"
-        app:logo="@drawable/marvel_logo"
-       app:titleTextColor="@color/white" />
+        android:layout_height="wrap_content"
+        android:background="@color/alizarin_crimson">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/media_image"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/marvel_logo_t"
+                android:visibility="visible" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fragmente_lista_HQs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="3"
-        android:layout_margin="10dp"
         tools:listitem="@layout/item_hq" />
 
 

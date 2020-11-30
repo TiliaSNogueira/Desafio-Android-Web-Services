@@ -24,7 +24,8 @@ class FragmentDetalhesHQ : Fragment() {
 
         val picasso = Picasso.get()
 
-        picasso.load( "http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b" +"/landscape_large."+"jpg").into(view.iv_fragment_detalhes)
+        picasso.load("http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b" + "/landscape_large." + "jpg")
+            .into(view.iv_fragment_detalhes)
 
 
         val hqDetalhado = arguments?.get("chave") as Results
@@ -35,17 +36,22 @@ class FragmentDetalhesHQ : Fragment() {
         val tipoImagemObj = "/portrait_uncanny."
         val uriConcatenadaObj = objetoImagem + tipoImagemObj + extensionObj
 
+
+
         view.tv_titulo_frag_detalhes.text = hqDetalhado.title
         view.tv_descricao_frag_detalhes.text = hqDetalhado.description
-        // view.tv_published_frag_detalhes.text = hqDetalhado.dates.get(1).toString()
-        // view.tv_price_frag_detalhes.text = hqDetalhado.prices.get(1).toString()
+        view.tv_price_frag_detalhes.text = hqDetalhado.prices.get(0).price.toString()
         view.tv_pages_frag_detalhes.text = hqDetalhado.pageCount.toString()
+        view.tv_published_frag_detalhes.text = hqDetalhado.dates.get(0).date.toString()
         picasso.load(uriConcatenadaObj).into(view.iv_capahq_fragment_detalhes)
 
 
         val bundle = bundleOf("chave" to hqDetalhado)
         view.iv_capahq_fragment_detalhes.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentDetalhesHQ_to_fragmentImagemExpandida, bundle)
+            findNavController().navigate(
+                R.id.action_fragmentDetalhesHQ_to_fragmentImagemExpandida,
+                bundle
+            )
         }
 
         view.toolbar_frag_detalhes.setNavigationOnClickListener {
