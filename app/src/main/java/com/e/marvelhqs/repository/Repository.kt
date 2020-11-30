@@ -18,7 +18,7 @@ interface Service {
 
 //passei o id do personagem na uri
 val retrofit = Retrofit.Builder()
-    .baseUrl("http://gateway.marvel.com/v1/public/characters/1011334/")
+    .baseUrl("http://gateway.marvel.com/v1/public/characters/1009610/")
     .addConverterFactory(GsonConverterFactory.create()).build()
 
 val service: Service = retrofit.create(Service::class.java)

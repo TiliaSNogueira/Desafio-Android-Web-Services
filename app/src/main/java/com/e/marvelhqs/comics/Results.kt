@@ -19,7 +19,7 @@ data class Results (
 	@SerializedName("id") val id : Int,
 	//@SerializedName("digitalId") val digitalId : Int,
 	@SerializedName("title") val title : String,
-	@SerializedName("issueNumber") val issueNumber : Int,
+	//@SerializedName("issueNumber") val issueNumber : Int,
 	//@SerializedName("variantDescription") val variantDescription : String,
 	@SerializedName("description") val description : String,
 	//@SerializedName("modified") val modified : String,
