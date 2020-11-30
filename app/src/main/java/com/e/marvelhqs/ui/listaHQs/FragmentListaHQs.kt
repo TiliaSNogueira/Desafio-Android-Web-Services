@@ -1,7 +1,6 @@
 package com.e.marvelhqs.ui.listaHQs
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.e.marvelhqs.R
-import com.e.marvelhqs.Results
 import com.e.marvelhqs.repository.service
 import kotlinx.android.synthetic.main.fragment_lista_h_qs.view.*
 

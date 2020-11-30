@@ -27,7 +27,7 @@ class ListaHQsAdapter(val listaHQs: List<Results>, val listener: onClickLIstener
         val tipoImagem = "/portrait_uncanny."
         val uriConcatenada = base + tipoImagem + extension
 
-        holder.numeroHQ.text = hq.issueNumber.toString()
+        holder.numeroHQ.text = hq.id.toString()
         picasso.load(uriConcatenada).into(holder.imagemCapaHQ)
 
         holder.itemView.setOnClickListener {

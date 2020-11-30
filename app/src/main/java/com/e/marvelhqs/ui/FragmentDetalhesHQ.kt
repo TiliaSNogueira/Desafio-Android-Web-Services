@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.e.marvelhqs.R
 import com.e.marvelhqs.Results
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_detalhes_h_q.view.*
 
 class FragmentDetalhesHQ : Fragment() {
 
@@ -21,8 +23,24 @@ class FragmentDetalhesHQ : Fragment() {
         val hqDetalhado = arguments?.get("chave") as Results
 
 
+        val picasso = Picasso.get()
 
 
+        val objetoImagem = hqDetalhado.thumbnail.path
+        val extensionObj = hqDetalhado.thumbnail.extension
+        val tipoImagemObj = "/portrait_uncanny."
+        val uriConcatenadaObj = objetoImagem + tipoImagemObj + extensionObj
+
+        view.tv_titulo_frag_detalhes.text = hqDetalhado.title
+        view.tv_descricao_frag_detalhes.text = hqDetalhado.description
+        view.tv_published_frag_detalhes.text = hqDetalhado.dates.get(1).date.toString()
+        view.tv_price_frag_detalhes.text = hqDetalhado.prices.get(1).price
+        view.tv_pages_frag_detalhes.text = hqDetalhado.pageCount.toString()
+        picasso.load(uriConcatenadaObj).into(view.iv_capahq_fragment_detalhes)
+
+        view.setOnClickListener {
+
+        }
 
         return view
     }

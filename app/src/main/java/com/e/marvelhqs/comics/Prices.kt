@@ -16,5 +16,5 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 data class Prices (
 
 	@SerializedName("type") val type : String,
-	@SerializedName("price") val price : Int
+	@SerializedName("price") val price : String
 )
