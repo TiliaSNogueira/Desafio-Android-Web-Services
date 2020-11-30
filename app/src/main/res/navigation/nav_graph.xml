@@ -25,7 +25,23 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentDetalhesHQ"
-        android:name="com.e.marvelhqs.ui.FragmentDetalhesHQ"
+        android:name="com.e.marvelhqs.ui.detalhesHQ.FragmentDetalhesHQ"
         android:label="fragment_detalhes_h_q"
-        tools:layout="@layout/fragment_detalhes_h_q" />
+        tools:layout="@layout/fragment_detalhes_h_q" >
+        <action
+            android:id="@+id/action_fragmentDetalhesHQ_to_fragmentImagemExpandida"
+            app:destination="@id/fragmentImagemExpandida" />
+        <action
+            android:id="@+id/action_fragmentDetalhesHQ_to_fragmentListaHQs"
+            app:destination="@id/fragmentListaHQs" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentImagemExpandida"
+        android:name="com.e.marvelhqs.ui.imagemexpandida.FragmentImagemExpandida"
+        android:label="fragment_imagem_expandida"
+        tools:layout="@layout/fragment_imagem_expandida" >
+        <action
+            android:id="@+id/action_fragmentImagemExpandida_to_fragmentDetalhesHQ"
+            app:destination="@id/fragmentDetalhesHQ" />
+    </fragment>
 </navigation>

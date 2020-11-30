@@ -1,10 +1,12 @@
-package com.e.marvelhqs.ui
+package com.e.marvelhqs.ui.detalhesHQ
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.e.marvelhqs.R
 import com.e.marvelhqs.Results
 import com.squareup.picasso.Picasso
@@ -27,6 +29,7 @@ class FragmentDetalhesHQ : Fragment() {
 
         val hqDetalhado = arguments?.get("chave") as Results
 
+
         val objetoImagem = hqDetalhado.thumbnail.path
         val extensionObj = hqDetalhado.thumbnail.extension
         val tipoImagemObj = "/portrait_uncanny."
@@ -39,8 +42,14 @@ class FragmentDetalhesHQ : Fragment() {
         view.tv_pages_frag_detalhes.text = hqDetalhado.pageCount.toString()
         picasso.load(uriConcatenadaObj).into(view.iv_capahq_fragment_detalhes)
 
-        view.setOnClickListener {
 
+        val bundle = bundleOf("chave" to hqDetalhado)
+        view.iv_capahq_fragment_detalhes.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentDetalhesHQ_to_fragmentImagemExpandida, bundle)
+        }
+
+        view.toolbar_frag_detalhes.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_fragmentDetalhesHQ_to_fragmentListaHQs)
         }
 
         return view

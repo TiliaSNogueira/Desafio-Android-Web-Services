@@ -11,10 +11,11 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_fragment_lista"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:padding="10dp"
         android:background="@color/alizarin_crimson"
-        app:title="MARVEL"
-        app:titleTextColor="@color/white" />
+        app:logo="@drawable/marvel_logo"
+       app:titleTextColor="@color/white" />
 
 
     <androidx.recyclerview.widget.RecyclerView
