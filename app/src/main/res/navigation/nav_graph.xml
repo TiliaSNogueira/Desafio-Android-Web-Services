@@ -52,5 +52,17 @@
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentListaHQs"
             app:destination="@id/fragmentListaHQs" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentCadastro"
+            app:destination="@id/fragmentCadastro" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCadastro"
+        android:name="com.e.marvelhqs.ui.FragmentCadastro"
+        android:label="fragment_cadastro"
+        tools:layout="@layout/fragment_cadastro" >
+        <action
+            android:id="@+id/action_fragmentCadastro_to_fragmentListaHQs"
+            app:destination="@id/fragmentListaHQs" />
     </fragment>
 </navigation>
