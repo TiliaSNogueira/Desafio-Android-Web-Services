@@ -48,6 +48,8 @@ class FragmentListaHQs : Fragment(), ListaHQsAdapter.onClickLIstenerHQ {
 
         viewModel.getListHQs()
 
+
+
         return view
     }
 

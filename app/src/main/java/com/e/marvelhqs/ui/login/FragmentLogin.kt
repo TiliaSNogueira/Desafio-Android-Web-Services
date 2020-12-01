@@ -1,4 +1,4 @@
-package com.e.marvelhqs.ui
+package com.e.marvelhqs.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,16 +19,24 @@ class FragmentLogin : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-        view.btn_login.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentListaHQs)
-        }
+        vaiParaListaHQ(view)
 
-        view.tv_create_account_frag_login.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentCadastro2)
-        }
+        vaiParaCadastro(view)
 
 
         return view
+    }
+
+    private fun vaiParaCadastro(view: View) {
+        view.tv_create_account_frag_login.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentCadastro2)
+        }
+    }
+
+    private fun vaiParaListaHQ(view: View) {
+        view.btn_login.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentListaHQs)
+        }
     }
 
 

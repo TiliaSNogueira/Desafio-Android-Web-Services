@@ -1,10 +1,10 @@
-package com.e.marvelhqs.ui
+package com.e.marvelhqs.ui.splashscreen
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.e.marvelhqs.R
 import kotlinx.coroutines.CoroutineScope
@@ -23,13 +23,17 @@ class FragmentSplashScreen : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_splash_screen, container, false)
 
+        vaiParaLogin()
+
+
+        return view
+    }
+
+    private fun vaiParaLogin() {
         scope.launch {
             delay(2000)
             findNavController().navigate(R.id.action_fragmentSplashScreen_to_fragmentLogin)
         }
-
-
-        return view
     }
 
 

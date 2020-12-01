@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentSplashScreen"
-        android:name="com.e.marvelhqs.ui.FragmentSplashScreen"
+        android:name="com.e.marvelhqs.ui.splashscreen.FragmentSplashScreen"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen">
         <action
@@ -54,7 +54,7 @@
 
     <fragment
         android:id="@+id/fragmentLogin"
-        android:name="com.e.marvelhqs.ui.FragmentLogin"
+        android:name="com.e.marvelhqs.ui.login.FragmentLogin"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -72,7 +72,7 @@
 
     <fragment
         android:id="@+id/fragmentCadastro"
-        android:name="com.e.marvelhqs.ui.FragmentCadastro"
+        android:name="com.e.marvelhqs.ui.cadastro.FragmentCadastro"
         android:label="fragment_cadastro"
         tools:layout="@layout/fragment_cadastro">
         <action

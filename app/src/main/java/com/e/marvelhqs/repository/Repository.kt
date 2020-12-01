@@ -8,7 +8,7 @@ import retrofit2.http.GET
 
 interface Service {
 
-    //diz que vou pegar comics, e passa a chave
+    //diz que vou pegar comics, como parametro digo que quero os mais recentes e passa a chave de acesso
     @GET("comics?ts=1&orderBy=-focDate&apikey=de99d1f85bca19d7f67799a145912104&hash=b2f3a542ff1d531011ebaf6da5efc591")
     suspend fun getLisHQRepo(): ComicsWrapper
 

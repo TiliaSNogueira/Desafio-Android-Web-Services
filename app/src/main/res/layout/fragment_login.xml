@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/cetacean_blue"
     android:orientation="horizontal"
-    tools:context=".ui.FragmentLogin">
+    tools:context=".ui.login.FragmentLogin">
 
 
     <include
