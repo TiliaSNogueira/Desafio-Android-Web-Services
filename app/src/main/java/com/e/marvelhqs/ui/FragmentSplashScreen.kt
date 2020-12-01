@@ -25,7 +25,7 @@ class FragmentSplashScreen : Fragment() {
 
         scope.launch {
             delay(2000)
-            findNavController().navigate(R.id.action_fragmentSplashScreen_to_fragmentListaHQs)
+            findNavController().navigate(R.id.action_fragmentSplashScreen_to_fragmentLogin)
         }
 
 
