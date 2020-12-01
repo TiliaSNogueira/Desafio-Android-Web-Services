@@ -12,9 +12,9 @@ class ListaHqsViewModel(service: Service) : ViewModel() {
 
     val listaComics = MutableLiveData<List<Results>>()
 
-    fun getListHQs() {
+    fun getListHQs(offset: Int) {
         viewModelScope.launch {
-            listaComics.value = service.getLisHQRepo().data.results
+            listaComics.value = service.getLisHQRepo(offset).data.results
         }
     }
 }
