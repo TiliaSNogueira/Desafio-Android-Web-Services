@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
+                android:padding="5dp"
                 android:src="@drawable/marvel_logo_t"
                 android:visibility="visible" />
         </LinearLayout>

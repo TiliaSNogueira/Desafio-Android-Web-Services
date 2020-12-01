@@ -9,25 +9,31 @@
         android:id="@+id/fragmentSplashScreen"
         android:name="com.e.marvelhqs.ui.FragmentSplashScreen"
         android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
+        tools:layout="@layout/fragment_splash_screen">
         <action
             android:id="@+id/action_fragmentSplashScreen_to_fragmentLogin"
             app:destination="@id/fragmentLogin" />
     </fragment>
+
+
     <fragment
         android:id="@+id/fragmentListaHQs"
         android:name="com.e.marvelhqs.ui.listaHQs.FragmentListaHQs"
         android:label="fragment_lista_h_qs"
-        tools:layout="@layout/fragment_lista_h_qs" >
+        tools:layout="@layout/fragment_lista_h_qs">
         <action
             android:id="@+id/action_fragmentListaHQs_to_fragmentDetalhesHQ"
-            app:destination="@id/fragmentDetalhesHQ" />
+            app:destination="@id/fragmentDetalhesHQ"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"/>
     </fragment>
+
+
     <fragment
         android:id="@+id/fragmentDetalhesHQ"
         android:name="com.e.marvelhqs.ui.detalhesHQ.FragmentDetalhesHQ"
         android:label="fragment_detalhes_h_q"
-        tools:layout="@layout/fragment_detalhes_h_q" >
+        tools:layout="@layout/fragment_detalhes_h_q">
         <action
             android:id="@+id/action_fragmentDetalhesHQ_to_fragmentImagemExpandida"
             app:destination="@id/fragmentImagemExpandida" />
@@ -39,30 +45,40 @@
         android:id="@+id/fragmentImagemExpandida"
         android:name="com.e.marvelhqs.ui.imagemexpandida.FragmentImagemExpandida"
         android:label="fragment_imagem_expandida"
-        tools:layout="@layout/fragment_imagem_expandida" >
+        tools:layout="@layout/fragment_imagem_expandida">
         <action
             android:id="@+id/action_fragmentImagemExpandida_to_fragmentDetalhesHQ"
             app:destination="@id/fragmentDetalhesHQ" />
     </fragment>
+
+
     <fragment
         android:id="@+id/fragmentLogin"
         android:name="com.e.marvelhqs.ui.FragmentLogin"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentListaHQs"
-            app:destination="@id/fragmentListaHQs" />
+            app:destination="@id/fragmentListaHQs"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"/>
         <action
-            android:id="@+id/action_fragmentLogin_to_fragmentCadastro"
-            app:destination="@id/fragmentCadastro" />
+            android:id="@+id/action_fragmentLogin_to_fragmentCadastro2"
+            app:destination="@id/fragmentCadastro"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
+
+
     <fragment
         android:id="@+id/fragmentCadastro"
         android:name="com.e.marvelhqs.ui.FragmentCadastro"
         android:label="fragment_cadastro"
-        tools:layout="@layout/fragment_cadastro" >
+        tools:layout="@layout/fragment_cadastro">
         <action
             android:id="@+id/action_fragmentCadastro_to_fragmentListaHQs"
-            app:destination="@id/fragmentListaHQs" />
+            app:destination="@id/fragmentListaHQs"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
 </navigation>

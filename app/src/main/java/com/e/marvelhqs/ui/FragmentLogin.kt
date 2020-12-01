@@ -24,7 +24,7 @@ class FragmentLogin : Fragment() {
         }
 
         view.tv_create_account_frag_login.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentCadastro)
+            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentCadastro2)
         }
 
 

@@ -22,8 +22,8 @@ class ListaHQsAdapter(val listaHQs: List<Results>, val listener: onClickLIstener
     override fun onBindViewHolder(holder: HQViewHolder, position: Int) {
         val hq = listaHQs[position]
         val picasso = Picasso.get()
-        val base = hq.thumbnail.path.toString()
-        val extension = hq.thumbnail.extension.toString()
+        val base = hq.thumbnail.path
+        val extension = hq.thumbnail.extension
         val tipoImagem = "/portrait_uncanny."
         val uriConcatenada = base + tipoImagem + extension
 
