@@ -1,6 +1,7 @@
 package com.e.marvelhqs.ui.listaHQs
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,19 +12,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.e.marvelhqs.R
 import com.e.marvelhqs.repository.service
 import kotlinx.android.synthetic.main.fragment_lista_h_qs.view.*
 
 class FragmentListaHQs : Fragment(), ListaHQsAdapter.onClickLIstenerHQ {
 
-    private lateinit var adapterHQs : ListaHQsAdapter
-    private lateinit var layoutManagerHQS : GridLayoutManager
+    var offset = 1
+    private lateinit var adapterHQs: ListaHQsAdapter
+    private lateinit var layoutManagerHQS: GridLayoutManager
 
     private val viewModel by viewModels<ListaHqsViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                return  ListaHqsViewModel(service) as T
+                return ListaHqsViewModel(service) as T
             }
 
         }
@@ -34,7 +37,7 @@ class FragmentListaHQs : Fragment(), ListaHQsAdapter.onClickLIstenerHQ {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_lista_h_qs, container, false)
+        val view = inflater.inflate(R.layout.fragment_lista_h_qs, container, false)
 
         layoutManagerHQS = GridLayoutManager(context, 3)
         view.rv_fragmente_lista_HQs.layoutManager = layoutManagerHQS
@@ -46,8 +49,8 @@ class FragmentListaHQs : Fragment(), ListaHQsAdapter.onClickLIstenerHQ {
             view.rv_fragmente_lista_HQs.adapter = adapterHQs
         })
 
-        viewModel.getListHQs()
-
+        viewModel.getListHQs(offset)
+        setScrollView(view)
 
 
         return view
@@ -62,4 +65,36 @@ class FragmentListaHQs : Fragment(), ListaHQsAdapter.onClickLIstenerHQ {
 
         })
     }
+
+
+    private fun setScrollView(view: View) {
+        view.rv_fragmente_lista_HQs?.run {
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+
+                    //itens passados por cada pagina (no caso dessa api são 20 itens)
+                    var itensTotais = adapterHQs?.itemCount
+
+                    //debug falou que 2 (começa no 0)
+                    val ultimoItenVisivel = layoutManagerHQS.findLastVisibleItemPosition()
+
+                    val itensVisiveis = layoutManagerHQS?.childCount
+                    val itensPassados = layoutManagerHQS?.findFirstVisibleItemPosition()
+
+                    if ((itensVisiveis + itensPassados) == itensTotais) {
+                        offset++
+                        Log.i("FRAGMENTEXIBEPERSONAGEM", "CHAMAR NOVA PAGINA DA API")
+
+                        viewModel.getListHQs(offset)
+                    }
+
+                }
+            })
+
+        }
+
+    }
+
+
 }
