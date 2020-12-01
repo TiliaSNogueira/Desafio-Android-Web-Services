@@ -73,19 +73,12 @@ class FragmentListaHQs : Fragment(), ListaHQsAdapter.onClickLIstenerHQ {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
 
-                    //itens passados por cada pagina (no caso dessa api são 20 itens)
                     var itensTotais = adapterHQs?.itemCount
-
-                    //debug falou que 2 (começa no 0)
-                    val ultimoItenVisivel = layoutManagerHQS.findLastVisibleItemPosition()
-
                     val itensVisiveis = layoutManagerHQS?.childCount
                     val itensPassados = layoutManagerHQS?.findFirstVisibleItemPosition()
 
                     if ((itensVisiveis + itensPassados) == itensTotais) {
                         offset++
-                        Log.i("FRAGMENTEXIBEPERSONAGEM", "CHAMAR NOVA PAGINA DA API")
-
                         viewModel.getListHQs(offset)
                     }
 
