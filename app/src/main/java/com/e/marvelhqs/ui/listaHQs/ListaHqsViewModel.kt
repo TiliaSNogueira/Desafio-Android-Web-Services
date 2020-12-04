@@ -17,4 +17,8 @@ class ListaHqsViewModel(service: Service) : ViewModel() {
             listaComics.value = service.getLisHQRepo(offset).data.results
         }
     }
+
 }
+
+
+

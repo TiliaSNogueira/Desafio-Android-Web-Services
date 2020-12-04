@@ -11,6 +11,8 @@ import com.e.marvelhqs.R
 import com.e.marvelhqs.Results
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detalhes_h_q.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class FragmentDetalhesHQ : Fragment() {
 
@@ -66,12 +68,28 @@ class FragmentDetalhesHQ : Fragment() {
         val tipoImagemObj = "/portrait_uncanny."
         val uriConcatenadaObj = objetoImagem + tipoImagemObj + extensionObj
         view.tv_titulo_frag_detalhes.text = hqDetalhado.title
-        view.tv_descricao_frag_detalhes.text = hqDetalhado.description
-        view.tv_price_frag_detalhes.text = hqDetalhado.prices.get(0).price.toString()
+
+        if (hqDetalhado.description == null) {
+            view.tv_descricao_frag_detalhes.text = "Description not found."
+        } else {
+            view.tv_descricao_frag_detalhes.text = hqDetalhado.description
+        }
+
+
+
+        view.tv_price_frag_detalhes.text = hqDetalhado.prices[0].price.toString()
         view.tv_pages_frag_detalhes.text = hqDetalhado.pageCount.toString()
-        view.tv_published_frag_detalhes.text = hqDetalhado.dates.get(0).date.toString()
+        //  view.tv_published_frag_detalhes.text = hqDetalhado.dates[0].date.toString()
         picasso.load(uriConcatenadaObj).into(view.iv_capahq_fragment_detalhes)
+
+
+        val date = SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(hqDetalhado.dates.get(0).date)
+        val dataFormatada = SimpleDateFormat("MMM dd, yyyy", Locale.US).format(date)
+
+        view.tv_published_frag_detalhes.text =  dataFormatada
+
     }
+
 
     private fun getObjetoHQ(): Results {
         val hqDetalhado = arguments?.get("chave") as Results
